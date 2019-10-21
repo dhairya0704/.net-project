@@ -4,74 +4,86 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Kaam22 Auth</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        html, body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-    <div class="nav-wrapper teal" >
-      <a href="#" class="brand-logo" >&nbsp;&nbsp; Man-Med</a>
-    </div>
-  </nav>
     <div class="container">
-        
-        <form id="form1" runat="server" >
-            <br /><br /><br />
-            <div class="row">
+        <div class="row">
+            <div class="col s3"></div>
+            <form id="authForm" method="post" class="col s6">
                 <center>
-                    <img src="app.png" width="100px" height="100px" />
+                    <div class="row">
+                        <div class="col s12">
+                            <img height="100" src="app.png" />
+                        </div>
+                    </div>
                 </center>
-            </div>
-            <div class="row">
-                <div class="input-field col s3">
-
-                </div>
-                <div class="input-field col s6">
-                        <asp:input id="email" type="email" class="validate" required name="textBox1" />
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" name="email" type="email" required="required" />
                         <label for="email">Email</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s3">
-
-                </div>
-                <div class="input-field col s6">
-                        <input id="password" type="password" class="validate" required name="textbox2">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" required="required" />
                         <label for="password">Password</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                
-                <div class="input-field col s3">
-
+                <br />
+                <div class="row">
+                    <center>
+                        <div class="col s6">
+                            <button class="btn waves-effect waves-light" type="submit" name="login" value="Login">
+                                <b style="color: #FFF;">Login<i class="material-icons right">send</i></b>
+                            </button>
+                        </div>
+                    </center>
+                    <center>
+                        <div class="col s6">
+                            <button class="btn waves-effect waves-light" type="submit" name="register" value="Register">
+                                <b style="color: #FFF;">Register</b>
+                            </button>
+                        </div>
+                    </center>
                 </div>
-                <div class="input-field col s4">
-                    <button class="btn waves-effect waves-light" type="submit" name="loginbtn">Login
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
-                
-                <div class="input-field col s4">
-                    <button class="btn waves-effect waves-light" type="submit" name="registerbtn">Register
-                        
-                    </button>
-                </div>
-                </center>
-            </div>
-                
-     
-        </form>
+            </form>
+            <div class="col s3"></div>
+        </div>
     </div>
-    <script src="<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <p>
-        <asp:Button ID="Button1" runat="server" Text="Button" />
-    </p>
+    <script>
+        $(document).ready(function () {
+            $('.fixed-action-btn').floatingActionButton();
+            $('.modal').modal();
+            var searchParams = new URLSearchParams(window.location.search);
+            if (searchParams.has('r')) {
+                if (searchParams.get('r') == 'rD') {
+                    M.toast({ html: 'Registration Done' })
+                } else if (searchParams.get('r') == 'aD') {
+                    M.toast({ html: 'User Already Exists!' })
+                } else if (searchParams.get('r') == 'lD') {
+                    M.toast({ html: 'Login Done' })
+                } else if (searchParams.get('r') == 'oD') {
+                    M.toast({ html: 'Login Failed!' })
+                }
+            }
+        });
+    </script>
 </body>
 </html>
