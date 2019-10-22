@@ -7,20 +7,17 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            height: 217px;
+            height: 302px;
         }
         .auto-style2 {
             width: 90%;
-            height: 108px;
+            height: 138px;
         }
-        .auto-style3 {
-            width: 193px;
-        }
-    </style>
+        </style>
 </head>
 <body style="height: 307px">
     <form id="form1" runat="server" class="auto-style1">
-    <div>
+    <div style="margin-left: 80px">
         <table class="auto-style2">
             <tr>
                 <td>
@@ -43,13 +40,15 @@
                     <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
                 </td>
                 <td>
-                    <input id="Text1" class="auto-style3" type="text" /></td>
+                    <textarea id="TextArea1" cols="20" name="S1" rows="2"></textarea></td>
             </tr>
         </table>
-        <asp:Button ID="Button1" runat="server" Text="Button" />
-        <asp:Button ID="Button2" runat="server" Text="Button" />
-        <asp:Button ID="Button3" runat="server" Text="Button" />
+        <asp:Button ID="Button1" runat="server" Text="Button" />&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button2" runat="server" Text="Button" />&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button3" runat="server" Text="Button" />&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button4" runat="server" Text="Button" />
+        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" Width="624px">
+        </asp:GridView>
     </div>
     </form>
 </body>
